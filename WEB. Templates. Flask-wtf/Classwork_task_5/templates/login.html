@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="one-line block">
+    <img src="/static/mars_emblem.png" alt="Тут должна была быть ваша картинка">
+</div>
+<div class="one-line block">
+    <h1>Аварийный доступ</h1>
+</div>
+
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}<br>
+        <br>
+        {{ form.username(class="form-control longer-input") }}<br>
+        {% for error in form.username.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        <br>
+        {{ form.password(class="form-control longer-input", type="password") }}<br>
+        {% for error in form.password.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.cap_name.label }}<br>
+        <br>
+        {{ form.cap_name(class="form-control longer-input") }}<br>
+        {% for error in form.cap_name.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.cap_password.label }}<br>
+        <br>
+        {{ form.cap_password(class="form-control longer-input", type="password") }}<br>
+        {% for error in form.cap_password.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    <p>{{ form.submit(type="submit", class="btn btn-primary make-blue-button") }}</p>
+</form>
+{% endblock %}
