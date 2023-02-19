@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список профессий</title>
+    </head>
+    <body>
+        <h1>Миссия Колонизация Марса</h1>
+        <h4>И на марсе будут яблони цвести!</h4>
+        <h3 style="text-align: center">Список профессий<h3>
+        {% for prof in prof_list %}
+            {% if print_type == 'ol' %}
+                <h5 style="text-align: center">{{loop.index}} {{prof}}</h5>
+            {% elif print_type == 'ul' %}
+                <h5 style="text-align: center">·{{prof}}</h5>
+            {% else %}
+                <h5 style="text-align: center">Error</h5>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
