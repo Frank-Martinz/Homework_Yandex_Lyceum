@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="background-color: #d4d4d4; width: 400px; height: 500;">
+    <h5 style="display:inline-block; margin-left: 50px;">Цвет стен</h5>
+    <h5 style="display:inline-block; margin-left: 200px;">Эмблема</h5>
+
+
+    {% if sex == 'female' %}
+        <div style="background-color: #ff0{{100 - age }}0">
+            {% if age < 21 %}
+                <img src="/static/kids.png" alt="Тут должна была быть ваша фотография" style="margin-left: 233px; height: 250px;">
+            {% else %}
+                <img src="/static/adults.png" alt="Тут должна была быть ваша фотография" style="margin-left: 233px; height: 250px;">
+            {% endif %}
+        </div>
+    {% elif sex == 'male' %}
+        <div style="background-color: #00{{100 - age}}ff; max-height: 250px;">
+            {% if age < 21 %}
+                <img src="/static/kids.png" alt="Тут должна была быть ваша фотография" style="margin-left: 233px; height: 250px;">
+            {% else %}
+                <img src="/static/adults.png"  alt="Тут должна была быть ваша фотография" style="margin-left: 233px; height: 250px; width: 167px;">
+            {% endif %}
+        </div>
+    {% endif %}
+
+
+
+</div>
+
+{% endblock %}

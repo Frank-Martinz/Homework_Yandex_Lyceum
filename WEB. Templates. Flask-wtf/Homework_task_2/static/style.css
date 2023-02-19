@@ -1,0 +1,26 @@
+.move-one-tab {
+margin-left: 20px;
+margin-bottom: 20px;
+}
+
+.for-div {
+margin-left: 50px;
+margin-bottom: 20px;
+margin-top: 20px;
+font-family: Arial;
+}
+
+.one-line {
+display: inline-block;
+}
+
+.make-blue-button {
+background: #5470c5;
+border-radius: 3px;
+}
+
+.longer-input {
+width: 250px;
+border-radius: 3px;
+border-width: 1px;
+}
