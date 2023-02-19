@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <h1>Миссия Колонизация Марса</h1>
+        <h4>И на марсе будут яблони цвести!</h4>
+        {% if profession == 1 %}
+        <h3>Инженерные тренажеры</h3>
+        {% else %}
+        <h3>Научные симуляторы</h3>
+        {% endif %}
+        <img src="{{ images_url }}" alt="Тут должна была быть ваша картинка">
+    </body>
+</html>
