@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>123</title>
+    </head>
+    <body>
+        {% extends "base.html" %}
+
+        {% block content %}
+        <div class="for-div">Фамилия: {{ info["surname"] }}</div>
+        <div class="for-div">Имя: {{ info["name"] }}</div>
+        <div class="for-div">Образование: {{ info["educ"] }}</div>
+        <div class="for-div">Профессия: {{ info["prof"] }}</div>
+        <div class="for-div">Пол: {{ info["sex"] }}</div>
+        <div class="for-div">Мотивация: {{info["motiv"]}}</div>
+        <div class="for-div">Готовы остаться на Марсе?: {{ info["ready"] }}</div>
+        {% endblock %}
+    </body>
+</html>
