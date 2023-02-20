@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-box">
+    <h2 class="text-mod">{{name}}</h2>
+    <figure class="fig">
+        {% if age < 21 %}
+            <img src="/static/kids.png" alt="Тут должна быть ваша картинка">
+        {% else %}
+            <img src="/static/adults.png" alt="Тут должна быть ваша картинка">
+        {% endif %}
+    </figure>
+    <h6 class="text-mod">{{prof}}</h6>
+</div>
+
+{% endblock %}
