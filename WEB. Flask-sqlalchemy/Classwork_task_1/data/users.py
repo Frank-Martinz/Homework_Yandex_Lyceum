@@ -1,10 +1,11 @@
 import datetime
 import sqlalchemy
+from flask_login import UserMixin
 from sqlalchemy import orm
 from .db_session import SqlAlchemyBase
 
 
-class User(SqlAlchemyBase):
+class User(SqlAlchemyBase, UserMixin):
     __tablename__ = 'users'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
@@ -20,10 +21,13 @@ class User(SqlAlchemyBase):
     modified_date = sqlalchemy.Column(sqlalchemy.DateTime)
 
     jobs = orm.relationship("Jobs", back_populates='user')
-    department = orm.relationship("Departaments", back_populates='user')
+    department = orm.relationship("Department", back_populates='user')
 
     def set_password(self, password):
         self.hashed_password = password
+
+    def check_password(self, password):
+        return self.hashed_password == password
 
     def __repr__(self):
         return f"<Colonist> {self.id} {self.surname} {self.name}"
