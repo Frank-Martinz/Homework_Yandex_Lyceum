@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-mod">Works log</h1>
+{% for item in job %}
+    <div class="indent">
+        <h2>Action #{{item.id}}</h2>
+        <div style="background: #909090; width: 1150px">
+            <h6 class="one-line" style="width: 300px">Title of activity</h5>
+            <h6 class="one-line" style="width: 200px">Team leader</h5>
+            <h6 class="one-line" style="width: 200px">Duration</h5>
+            <h6 class="one-line" style="width: 250px">List of collaborators</h5>
+            <h6 class="one-line" style="width: 175px">Is finished</h5>
+        </div>
+        <div>
+            <h6 class="one-line" style="width: 300px">{{item.job}}</h5>
+            <h6 class="one-line" style="width: 200px">{{item.user.surname}} {{item.user.name}}</h5>
+            <h6 class="one-line" style="width: 200px">{{item.work_size}} hours</h5>
+            <h6 class="one-line" style="width: 250px">{{item.collaborators}}</h5>
+            <h6 class="one-line" style="width: 175px">{{item.is_finished == 1}}</h5>
+        </div>
+        {% if current_user.is_authenticated %}
+            {% if current_user.id == 1 or current_user == item.user%}
+                <div>
+                    <a href="/edit_jobs/{{ item.id }}" class="btn btn-warning one-line">
+                        Изменить
+                    </a>
+                    <a href="/delete_jobs/{{ item.id }}" class="btn btn-danger one-line">
+                        Удалить
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endfor %}
+{% if current_user.is_authenticated %}
+    <a href="add_jobs" class="btn btn-secondary">Добавить работу</a>
+{% endif %}
+{% endblock %}
