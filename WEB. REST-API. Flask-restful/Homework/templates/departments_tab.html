@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-mod">List of Departments</h1>
+<a href="/tables" class="btn btn-secondary">To Jobs</a>
+{% for item in department %}
+    <div class="indent">
+        <h2>Action #{{item.id}}</h2>
+        <div style="background: #909090; width: 1150px">
+            <h6 class="one-line" style="width: 300px">Title</h6>
+            <h6 class="one-line" style="width: 200px">Chief</h6>
+            <h6 class="one-line" style="width: 200px">Members</h6>
+            <h6 class="one-line" style="width: 250px">Email</h6>
+        </div>
+        <div>
+            <h6 class="one-line" style="width: 300px">{{item.title}}</h6>
+            <h6 class="one-line" style="width: 200px">{{item.user.surname}} {{item.user.name}}</h6>
+            <h6 class="one-line" style="width: 200px">{{item.members}}</h6>
+            <h6 class="one-line" style="width: 250px">{{item.email}}</h6>
+        </div>
+        {% if current_user.is_authenticated %}
+            {% if current_user.id == 1 or current_user == item.user%}
+                <div>
+                    <a href="/edit_depart/{{ item.id }}" class="btn btn-warning one-line">
+                        Изменить
+                    </a>
+                    <a href="/delete_depart/{{ item.id }}" class="btn btn-danger one-line">
+                        Удалить
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endfor %}
+{% if current_user.is_authenticated %}
+    <a href="/add_department" class="btn btn-secondary">Add Department</a>
+{% endif %}
+{% endblock %}
